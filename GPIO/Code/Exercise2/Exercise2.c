@@ -20,7 +20,7 @@ int main(void){
     /* Make pin 6 of PROTD output */
     DDRD |= (1<<PD6);
     /* Initalize the led to be turned OFF */
-    PORTD &= ~(1<<PD6);
+    PORTD |= (1<<PD6);
 
     while (1){
         /* Wait 1 Second */
