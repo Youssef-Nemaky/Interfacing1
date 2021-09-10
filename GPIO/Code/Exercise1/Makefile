@@ -25,7 +25,7 @@ VPATH = src
 # avr mcu
 MCU = atmega16a
 # mcu clock frequency
-CLK = 16000000
+CLK = 1000000
 # Baud rate
 BAUD = 57600
 # avr programmer (and port if necessary)
@@ -36,7 +36,7 @@ PRG = usbasp -P $(PORT)
 # fuse values for avr: low, high, and extended
 # these values are from an Arduino Uno (ATMega328P)
 # see http://www.engbedded.com/fusecalc/ for other MCUs and options
-LFU = 0xFF
+LFU = 0xC1
 HFU = 0x99
 EFU = 0xFF
 # program source files (not including external libraries)
