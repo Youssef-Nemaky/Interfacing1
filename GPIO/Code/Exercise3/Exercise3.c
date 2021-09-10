@@ -35,19 +35,19 @@ int main(void){
         /* Check if switch 0 is pressed */
         if(PINB & (1<<PB0)){
             /* Turn ON the LED*/
-            PORTB |= (1<<PB0);
+            PORTC |= (1<<PB0);
         } else {
             /* Turn OFF the LED */
-            PORTB &= ~(1<<PB0);
+            PORTC &= ~(1<<PB0);
         }
 
         /* Check if switch 1 is pressed */
         if(PINB & (1<<PB1)){
             /* Turn ON the LED*/
-            PORTB |= (1<<PB1);
+            PORTC |= (1<<PB1);
         } else {
             /* Turn OFF the LED */
-            PORTB &= ~(1<<PB1);
+            PORTC &= ~(1<<PB1);
         }
     }
     return 0;
