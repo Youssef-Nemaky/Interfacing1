@@ -19,6 +19,8 @@
 #include <util/delay.h>
 
 int main(void){
+    /* flag used to check that the button is released */
+    uint8_t flag = 0;
     /* Make pin 0 in PORTB input */
     DDRB &= ~(1<<PB0);
     /* Enable internal pull up resistor */
@@ -31,13 +33,17 @@ int main(void){
         /* Check if the switch is pressed */
         if((PINB & (1<<PB0)) == 0){
             /* A small delay of 20 ms */
-            _delay_ms(20);
+            _delay_ms(30);
             /* Check again to handle the de-bouncing problem */
             if((PINB & (1<<PB0)) ==  0){
-                /* Toggle the LED */
-                PORTC ^= (1<<PC0);
+                /* check the flag */
+                if(flag == 0){
+                    /* Toggle the LED */
+                    PORTC ^= (1<<PC0);
+                    flag = 1;
+                }
             }            
-        }
+        } else flag = 0;
     }
     return 0;
 }
