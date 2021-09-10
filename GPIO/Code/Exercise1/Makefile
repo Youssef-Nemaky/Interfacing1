@@ -23,22 +23,22 @@ PRJ = Exercise1
 VPATH = src
 
 # avr mcu
-MCU = atmega16a
+MCU = atmega16
 # mcu clock frequency
 CLK = 1000000
 # Baud rate
 BAUD = 57600
 # avr programmer (and port if necessary)
 # e.g. PRG = usbtiny -or- PRG = arduino -P /dev/tty.usbmodem411
-PORT = Com1
+PORT = COM1
 
 PRG = usbasp -P $(PORT)
 # fuse values for avr: low, high, and extended
 # these values are from an Arduino Uno (ATMega328P)
 # see http://www.engbedded.com/fusecalc/ for other MCUs and options
 LFU = 0xC1
-HFU = 0x99
-EFU = 0xFF
+HFU = 0xD9
+#EFU = 0xFF
 # program source files (not including external libraries)
 SRC = $(PRJ).c
 # where to look for external libraries (consisting of .c/.cpp files and .h files)
@@ -84,8 +84,9 @@ flash: all
 	$(AVRDUDE) -U flash:w:$(PRJ).hex:i
 
 # write fuses to mcu
-# fuse:
-# 	$(AVRDUDE) -U lfuse:w:$(LFU):m -U hfuse:w:$(HFU):m -U efuse:w:$(EFU):m
+fuse:
+	$(AVRDUDE) -U lfuse:w:$(LFU):m -U hfuse:w:$(HFU):m 
+#efuse:w:$(EFU):m
 
 # generate disassembly files for debugging
 disasm: $(PRJ).elf
