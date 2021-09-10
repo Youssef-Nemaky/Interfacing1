@@ -16,6 +16,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+
 int main(void){
     /* Make pin 3 in PORTA input */
     DDRA &= ~(1<<PA3);
