@@ -1,1 +1,2 @@
-/Debug/
+/Debug/*
+!/Debug/Timers_Challenge4.elf

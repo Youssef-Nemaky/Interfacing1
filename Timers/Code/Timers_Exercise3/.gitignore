@@ -1,1 +1,2 @@
-/Debug/
+/Debug/*
+!/Debug/Timers_Exercise3.elf
